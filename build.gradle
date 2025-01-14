@@ -30,10 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3'
 	implementation 'io.swagger.core.v3:swagger-annotations-jakarta:2.2.27'
-	//implementation 'io.springfox:springfox-boot-starter:3.0.0'
-	//Fix for 'GHSA-v2xm-76pq-phcf' (https://osv.dev/vulnerability/GHSA-v2xm-76pq-phcf):
-	//implementation 'io.github.classgraph:classgraph:4.8.112'
-	//implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'

@@ -1,7 +1,12 @@
 package com.mortgage.api.v1.repositories;
 
-import com.mortgage.api.v1.models.entities.MortgageRate;
+import com.mortgage.api.v1.models.entities.MortgageRateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MortgageRateRepository extends JpaRepository<MortgageRate, Integer> {
+import java.util.Optional;
+
+public interface MortgageRateRepository extends JpaRepository<MortgageRateEntity, Integer> {
+
+    Optional<MortgageRateEntity> findByMaturityPeriodMonths(Integer maturityPeriodMonths);
+
 }
