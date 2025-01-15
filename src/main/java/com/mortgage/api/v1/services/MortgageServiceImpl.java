@@ -78,7 +78,10 @@ public class MortgageServiceImpl implements MortgageService {
     public MortgageFeasibilityDto checkFeasibility(MortgageEnquiryDto enquiryDto) {
 
         int tranchesSizeMonths = 60;
-        int maturityPeriodMonths = (enquiryDto.getMaturityPeriodMonths() / tranchesSizeMonths) * tranchesSizeMonths;
+        int maturityPeriodMonths = 420;
+        if (enquiryDto.getMaturityPeriodMonths() != 480) {
+            maturityPeriodMonths = (enquiryDto.getMaturityPeriodMonths() / tranchesSizeMonths) * tranchesSizeMonths;
+        }
         var mortgageRateEntity = this.mortgageRateRepository
                 .findByMaturityPeriodMonths(maturityPeriodMonths)
                 .orElseThrow(
