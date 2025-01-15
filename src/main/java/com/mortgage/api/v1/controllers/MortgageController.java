@@ -24,8 +24,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 )
 public class MortgageController {
 
-    private MortgageMapper mortgageMapper;
-    private MortgageService mortgageService;
+    private final MortgageMapper mortgageMapper;
+    private final MortgageService mortgageService;
 
     @Autowired
     public MortgageController(
