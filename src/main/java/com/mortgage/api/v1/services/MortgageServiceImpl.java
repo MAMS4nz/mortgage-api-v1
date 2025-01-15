@@ -48,16 +48,28 @@ public class MortgageServiceImpl implements MortgageService {
         BigDecimal monthlyInterest = mortgageRateEntity
                 .getYearlyInterestPercentageRate()
                 .divide(
+                        BigDecimal.valueOf(100L),
+                        6,
+                        RoundingMode.HALF_EVEN
+                ) //To move from a percentage to a purely decimal value.
+                .divide(
                         BigDecimal.valueOf(12L),
-                        4,
+                        6,
                         RoundingMode.HALF_EVEN
                 );
-        BigDecimal commonFactor = monthlyInterest.add(BigDecimal.ONE).pow(enquiryDto.getMaturityPeriodMonths());
-        BigDecimal dividend = enquiryDto.getLoanPrincipal().multiply(monthlyInterest).multiply(commonFactor);
-        BigDecimal divisor = commonFactor.subtract(BigDecimal.ONE);
+        BigDecimal commonFactor = (monthlyInterest.add(BigDecimal.ONE))
+                .setScale(6, RoundingMode.HALF_EVEN)
+                .pow(enquiryDto.getMaturityPeriodMonths());
+        BigDecimal dividend = enquiryDto.getLoanPrincipal()
+                .multiply(monthlyInterest)
+                .multiply(commonFactor)
+                .setScale(6, RoundingMode.HALF_EVEN);
+        BigDecimal divisor = commonFactor
+                .subtract(BigDecimal.ONE)
+                .setScale(6, RoundingMode.HALF_EVEN);;
         return dividend.divide(
                 divisor,
-                2,
+                2, //To return something not more fine-grained than Euro cents.
                 RoundingMode.HALF_EVEN
         );
     }
