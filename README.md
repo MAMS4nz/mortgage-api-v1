@@ -169,21 +169,21 @@ structure reflects our final decision, being quite usual for a n-tiered REST API
 
 Some technologies we've employed are (in no particular order):
 
-Adoptium JDK / Eclipse Temurin 21.0.5
-Java 21 (LTS and more mature than 23)
-Spring Boot 3.4.1
-Spring Data JPA with Hibernate as implementation
-Hibernate Validator
-Gradle
-H2 RDBMS
-IntelliJ IDEA
-JUnit
-Mockito
-SpringDoc OpenAPI (for Swagger generation)
-Embedded Tomcat (Spring Boot's default)
-Jackson (Spring Boot's default)
-POSTMAN
-... and a custom 'favicon.ico'  -_o
+- Adoptium JDK / Eclipse Temurin 21.0.5
+- Java 21 (LTS and more mature than 23)
+- Spring Boot 3.4.1
+- Spring Data JPA with Hibernate as implementation
+- Hibernate Validator
+- Gradle
+- H2 RDBMS
+- IntelliJ IDEA
+- JUnit
+- Mockito
+- SpringDoc OpenAPI (for Swagger generation)
+- Embedded Tomcat (Spring Boot's default)
+- Jackson (Spring Boot's default)
+- POSTMAN
+- ... and a custom 'favicon.ico'  -_o
 
 ### Licensing ###
 
