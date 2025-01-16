@@ -12,3 +12,5 @@ Por otro lado, siguiendo la práctica usual consideramos también que el plazo m
 - Explicar cambios en las URLes respecto al enunciado del ejercicio.
 - Explicar que, idealmente, querríamos exponer los "beans" de gestión y monitorización en tiempo real, vía JMX, de HikariCP. El acceso por parte de los clientes debería estar securizado mediante credenciales, intercambio de certificados y restricciones de puerto, red y cortafuegos. En un ejercicio como éste, la sobrecarga de configurar esta infraestructura carece de sentido.
 - Explicar Swagger: http://localhost:8080/swagger-ui/index.html & http://localhost:8080/v3/api-docs
+- Explicar Spring Security
+- Explicar Actuator y su configuración de seguridad.

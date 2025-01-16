@@ -19,7 +19,7 @@ import java.util.List;
 public class MortgageServiceImpl implements MortgageService {
     
     private final MortgageRateRepository mortgageRateRepository;
-    private MortgageMapper mortgageMapper;
+    private final MortgageMapper mortgageMapper;
     private final List<MortgageRule> businessRules;
     
     @Autowired
@@ -41,7 +41,7 @@ public class MortgageServiceImpl implements MortgageService {
         );
     }
 
-    protected BigDecimal calcFrenchAmortizationMonthlyPayment(
+    public BigDecimal calcFrenchAmortizationMonthlyPayment(
             MortgageEnquiryDto enquiryDto,
             MortgageRateEntity mortgageRateEntity
     ) {

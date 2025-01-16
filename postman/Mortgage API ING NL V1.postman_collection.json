@@ -1,0 +1,1237 @@
+{
+	"info": {
+		"_postman_id": "f72dc7c8-0240-4c1a-8714-b3fe39def82d",
+		"name": "Mortgage API ING NL V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27248330"
+	},
+	"item": [
+		{
+			"name": "GET Mortgage Rates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/mortgages/rates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"mortgages",
+						"rates"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/rates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"rates"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 12:35:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rates\": [\n        {\n            \"id\": 1,\n            \"maturityPeriodMonths\": 120,\n            \"yearlyInterestPercentageRate\": 3.75\n        },\n        {\n            \"id\": 2,\n            \"maturityPeriodMonths\": 180,\n            \"yearlyInterestPercentageRate\": 4\n        },\n        {\n            \"id\": 3,\n            \"maturityPeriodMonths\": 240,\n            \"yearlyInterestPercentageRate\": 4.25\n        },\n        {\n            \"id\": 4,\n            \"maturityPeriodMonths\": 300,\n            \"yearlyInterestPercentageRate\": 4.5\n        },\n        {\n            \"id\": 5,\n            \"maturityPeriodMonths\": 360,\n            \"yearlyInterestPercentageRate\": 4.75\n        },\n        {\n            \"id\": 6,\n            \"maturityPeriodMonths\": 420,\n            \"yearlyInterestPercentageRate\": 5\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Check Mortgage Feasibility",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 360,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"mortgages",
+						"enquiries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 363,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 13:21:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 519.68\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 136,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:20:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 903.71\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 188,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:21:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 716.71\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 242,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:21:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 616.01\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 310,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:22:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 546.16\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 430,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:23:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 500.41\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 119,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:25:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"fd0e8d8a-8ec3-46eb-8243-11ec83e2b9f9-1736969155069\",\n    \"message\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.mortgage.api.v1.models.dtos.MortgageFeasibilityDto> com.mortgage.api.v1.controllers.MortgageController.checkFeasibility(com.mortgage.api.v1.models.dtos.MortgageEnquiryDto): [Field error in object 'mortgageEnquiryDto' on field 'maturityPeriodMonths': rejected value [119]; codes [Min.mortgageEnquiryDto.maturityPeriodMonths,Min.maturityPeriodMonths,Min.java.lang.Integer,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.maturityPeriodMonths,maturityPeriodMonths]; arguments []; default message [maturityPeriodMonths],120]; default message [must be greater than or equal to 120]] \",\n    \"utcTimestamp\": \"2025-01-15T19:25:55.0707687Z\",\n    \"httpStatus\": 400\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 481,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:27:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"17049a62-dc84-4a6f-a79c-048af47c1e30-1736969265120\",\n    \"message\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.mortgage.api.v1.models.dtos.MortgageFeasibilityDto> com.mortgage.api.v1.controllers.MortgageController.checkFeasibility(com.mortgage.api.v1.models.dtos.MortgageEnquiryDto): [Field error in object 'mortgageEnquiryDto' on field 'maturityPeriodMonths': rejected value [481]; codes [Max.mortgageEnquiryDto.maturityPeriodMonths,Max.maturityPeriodMonths,Max.java.lang.Integer,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.maturityPeriodMonths,maturityPeriodMonths]; arguments []; default message [maturityPeriodMonths],480]; default message [must be less than or equal to 480]] \",\n    \"utcTimestamp\": \"2025-01-15T19:27:45.1204058Z\",\n    \"httpStatus\": 400\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 480,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:39:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 482.22\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 466,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 19:39:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 486.81\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 120,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 20:40:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 1000.61\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 180,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 20:46:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 739.67\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 240,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 20:50:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 619.26\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 300,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 20:52:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 555.83\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 242,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 21:03:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 616.01\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 260,\r\n    \"loanPrincipal\": 240000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 21:11:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 1413.97\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 19999.99,\r\n    \"maturityPeriodMonths\": 119,\r\n    \"loanPrincipal\": 49999.99,\r\n    \"marketHomeValue\": 19999.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 22:17:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"342f8303-603f-4f2d-968d-a2cabfbb09a4-1736979478398\",\n    \"message\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.mortgage.api.v1.models.dtos.MortgageFeasibilityDto> com.mortgage.api.v1.controllers.MortgageController.checkFeasibility(com.mortgage.api.v1.models.dtos.MortgageEnquiryDto) with 4 errors: [Field error in object 'mortgageEnquiryDto' on field 'yearlyIncomeEuros': rejected value [19999.99]; codes [Min.mortgageEnquiryDto.yearlyIncomeEuros,Min.yearlyIncomeEuros,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.yearlyIncomeEuros,yearlyIncomeEuros]; arguments []; default message [yearlyIncomeEuros],20000]; default message [must be greater than or equal to 20000]] [Field error in object 'mortgageEnquiryDto' on field 'marketHomeValue': rejected value [19999.99]; codes [Min.mortgageEnquiryDto.marketHomeValue,Min.marketHomeValue,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.marketHomeValue,marketHomeValue]; arguments []; default message [marketHomeValue],20000]; default message [must be greater than or equal to 20000]] [Field error in object 'mortgageEnquiryDto' on field 'maturityPeriodMonths': rejected value [119]; codes [Min.mortgageEnquiryDto.maturityPeriodMonths,Min.maturityPeriodMonths,Min.java.lang.Integer,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.maturityPeriodMonths,maturityPeriodMonths]; arguments []; default message [maturityPeriodMonths],120]; default message [must be greater than or equal to 120]] [Field error in object 'mortgageEnquiryDto' on field 'loanPrincipal': rejected value [49999.99]; codes [Min.mortgageEnquiryDto.loanPrincipal,Min.loanPrincipal,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.loanPrincipal,loanPrincipal]; arguments []; default message [loanPrincipal],50000]; default message [must be greater than or equal to 50000]] \",\n    \"utcTimestamp\": \"2025-01-15T22:17:58.399228Z\",\n    \"httpStatus\": 400\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 1000000000.01,\r\n    \"maturityPeriodMonths\": 481,\r\n    \"loanPrincipal\": 50000000.01,\r\n    \"marketHomeValue\": 2000000000.01\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 22:26:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bf6c5c70-000a-49da-b2ff-d583ff3770dc-1736979981179\",\n    \"message\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.mortgage.api.v1.models.dtos.MortgageFeasibilityDto> com.mortgage.api.v1.controllers.MortgageController.checkFeasibility(com.mortgage.api.v1.models.dtos.MortgageEnquiryDto) with 4 errors: [Field error in object 'mortgageEnquiryDto' on field 'loanPrincipal': rejected value [50000000.01]; codes [Max.mortgageEnquiryDto.loanPrincipal,Max.loanPrincipal,Max.java.math.BigDecimal,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.loanPrincipal,loanPrincipal]; arguments []; default message [loanPrincipal],50000000]; default message [must be less than or equal to 50000000]] [Field error in object 'mortgageEnquiryDto' on field 'marketHomeValue': rejected value [2000000000.01]; codes [Max.mortgageEnquiryDto.marketHomeValue,Max.marketHomeValue,Max.java.math.BigDecimal,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.marketHomeValue,marketHomeValue]; arguments []; default message [marketHomeValue],2000000000]; default message [must be less than or equal to 2000000000]] [Field error in object 'mortgageEnquiryDto' on field 'yearlyIncomeEuros': rejected value [1000000000.01]; codes [Max.mortgageEnquiryDto.yearlyIncomeEuros,Max.yearlyIncomeEuros,Max.java.math.BigDecimal,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.yearlyIncomeEuros,yearlyIncomeEuros]; arguments []; default message [yearlyIncomeEuros],1000000000]; default message [must be less than or equal to 1000000000]] [Field error in object 'mortgageEnquiryDto' on field 'maturityPeriodMonths': rejected value [481]; codes [Max.mortgageEnquiryDto.maturityPeriodMonths,Max.maturityPeriodMonths,Max.java.lang.Integer,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [mortgageEnquiryDto.maturityPeriodMonths,maturityPeriodMonths]; arguments []; default message [maturityPeriodMonths],480]; default message [must be less than or equal to 480]] \",\n    \"utcTimestamp\": \"2025-01-15T22:26:21.1791097Z\",\n    \"httpStatus\": 400\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 120,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Jan 2025 23:25:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 1000.61\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"yearlyIncomeEuros\": 60000,\r\n    \"maturityPeriodMonths\": 420,\r\n    \"loanPrincipal\": 100000,\r\n    \"marketHomeValue\": 450000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/mortgages/enquiries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"mortgages",
+								"enquiries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Jan 2025 01:08:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"feasible\": true,\n    \"monthlyPayment\": 504.71\n}"
+				}
+			]
+		}
+	]
+}

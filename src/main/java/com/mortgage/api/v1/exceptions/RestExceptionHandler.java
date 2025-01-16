@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -41,6 +42,24 @@ public class RestExceptionHandler {
                         getUniqueExceptionId(),
                         httpStatus.value(),
                         message,
+                        ZonedDateTime.now(UTC)
+                ),
+                httpStatus
+        );
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<GeneralErrorResponse> handleNoResourceFoundException(
+            Exception ex
+    ) {
+        log.error("handleNoResourceFoundException: {}:", ex.getMessage(), ex);
+        var httpStatus = HttpStatus.NOT_FOUND;
+        var id = getUniqueExceptionId();
+        return new ResponseEntity<>(
+                new GeneralErrorResponse(
+                        id,
+                        httpStatus.value(),
+                        "The resource could not be found. ",
                         ZonedDateTime.now(UTC)
                 ),
                 httpStatus
